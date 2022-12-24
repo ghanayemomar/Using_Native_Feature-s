@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import '../models/place.dart';
+import '../helpers/db_helper.dart';
 import 'dart:io';
 
 class GreatPlaces with ChangeNotifier {
@@ -17,5 +18,10 @@ class GreatPlaces with ChangeNotifier {
     );
     _items.add(newPlace); // we added to the _items the new place
     notifyListeners();
+    DBHelper.insert('places', {
+      'id': newPlace.id,
+      'title': newPlace.title,
+      'image': newPlace.image.path
+    });
   }
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project/widgets/image_input.dart';
-import 'dart:io';
 import '../widgets/image_input.dart';
 import '../providers/great_places.dart';
 import 'package:provider/provider.dart';
+import 'dart:io';
 
 class AddPlaceScreen extends StatefulWidget {
   static const RouteName = '/add-place';

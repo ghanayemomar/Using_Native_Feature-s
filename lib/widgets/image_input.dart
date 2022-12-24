@@ -13,7 +13,7 @@ class _ImageInputState extends State<ImageInput> {
     return Row(
       children: [
         Container(
-          width: 100,
+          width: 200,
           height: 100,
           decoration: BoxDecoration(
             border: Border.all(width: 1, color: Colors.grey),
@@ -28,6 +28,8 @@ class _ImageInputState extends State<ImageInput> {
           alignment: Alignment.center,
         ),
         SizedBox(width: 10),
+
+        ///asda/sd/asd
         Expanded(
             child: TextButton.icon(
                 onPressed: () {},

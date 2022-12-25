@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import '../helpers/location_helper.dart';
+import '../screens/map_screen.dart';
 
 class LocationInput extends StatefulWidget {
-  const LocationInput({Key key}) : super(key: key);
-
   @override
   State<LocationInput> createState() => _LocationInputState();
 }
@@ -22,6 +21,16 @@ class _LocationInputState extends State<LocationInput> {
     });
   }
 
+  Future<void> _selectOnMap() async {
+    await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => MapScreen(
+          isSelecting: true,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,7 +43,7 @@ class _LocationInputState extends State<LocationInput> {
               BoxDecoration(border: Border.all(width: 1, color: Colors.grey)),
           child: _previewImageUrl == null
               ? Text(
-                  "No Location Chosec",
+                  "No Location Picked",
                   textAlign: TextAlign.center,
                 )
               : Image.network(
@@ -57,7 +66,7 @@ class _LocationInputState extends State<LocationInput> {
               label: Text(
                 "Select On Map",
               ),
-              onPressed: () {},
+              onPressed: _selectOnMap,
               icon: Icon(Icons.map),
             )
           ],
